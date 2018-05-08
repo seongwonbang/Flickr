@@ -1,0 +1,42 @@
+PODS:
+  - Alamofire (4.7.2)
+  - Moya/Core (11.0.2):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - Moya/RxSwift (11.0.2):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - Result (3.2.4)
+  - RxCocoa (4.1.2):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.1.2)
+  - SDWebImage (4.3.3):
+    - SDWebImage/Core (= 4.3.3)
+  - SDWebImage/Core (4.3.3)
+
+DEPENDENCIES:
+  - Moya/RxSwift (~> 11.0)
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
+  - SDWebImage (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Moya
+    - Result
+    - RxCocoa
+    - RxSwift
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Moya: a725035953bc1c0eb1be505ab903984501d82440
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
+  RxSwift: e49536837d9901277638493ea537394d4b55f570
+  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+
+PODFILE CHECKSUM: e080b6a85ec9d6c644d7f8f29155ee6c57d14fbb
+
+COCOAPODS: 1.5.0

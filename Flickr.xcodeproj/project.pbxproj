@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		0364C88574F37631E24F1B2B /* Pods_FlickrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8574A8DE9844EA1388651FF9 /* Pods_FlickrTests.framework */; };
 		148B599620A1CDB1001F29F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B599520A1CDB1001F29F7 /* AppDelegate.swift */; };
-		148B599820A1CDB1001F29F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B599720A1CDB1001F29F7 /* ViewController.swift */; };
-		148B599B20A1CDB1001F29F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148B599920A1CDB1001F29F7 /* Main.storyboard */; };
+		148B599820A1CDB1001F29F7 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B599720A1CDB1001F29F7 /* SetupViewController.swift */; };
+		148B599B20A1CDB1001F29F7 /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148B599920A1CDB1001F29F7 /* Setup.storyboard */; };
 		148B599D20A1CDB1001F29F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 148B599C20A1CDB1001F29F7 /* Assets.xcassets */; };
 		148B59A020A1CDB1001F29F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148B599E20A1CDB1001F29F7 /* LaunchScreen.storyboard */; };
 		148B59AB20A1CDB1001F29F7 /* FlickrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B59AA20A1CDB1001F29F7 /* FlickrTests.swift */; };
 		148B59B620A1CDB1001F29F7 /* FlickrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B59B520A1CDB1001F29F7 /* FlickrUITests.swift */; };
+		14970B1020A1D408003B7E34 /* Photo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14970B0F20A1D408003B7E34 /* Photo.storyboard */; };
+		14970B1220A1D4A5003B7E34 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14970B1120A1D4A5003B7E34 /* PhotoViewController.swift */; };
+		14970B1520A1D938003B7E34 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14970B1420A1D938003B7E34 /* Storyboard.swift */; };
+		14970B1720A1D999003B7E34 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14970B1620A1D999003B7E34 /* UIViewControllerExtension.swift */; };
+		14970B2120A1E15F003B7E34 /* SetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14970B2020A1E15F003B7E34 /* SetupViewModel.swift */; };
 		D39E329402D97B60DE6F5DD4 /* Pods_Flickr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD58E7611DB2334D42C6C4F /* Pods_Flickr.framework */; };
 		DC48E9E1C52E26FC49AA09AC /* Pods_FlickrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B3938C843A32071C20CF4B /* Pods_FlickrUITests.framework */; };
 /* End PBXBuildFile section */
@@ -39,8 +44,8 @@
 /* Begin PBXFileReference section */
 		148B599220A1CDB1001F29F7 /* Flickr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flickr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		148B599520A1CDB1001F29F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		148B599720A1CDB1001F29F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		148B599A20A1CDB1001F29F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		148B599720A1CDB1001F29F7 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
+		148B599A20A1CDB1001F29F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Setup.storyboard; sourceTree = "<group>"; };
 		148B599C20A1CDB1001F29F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		148B599F20A1CDB1001F29F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		148B59A120A1CDB1001F29F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +55,11 @@
 		148B59B120A1CDB1001F29F7 /* FlickrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlickrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		148B59B520A1CDB1001F29F7 /* FlickrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrUITests.swift; sourceTree = "<group>"; };
 		148B59B720A1CDB1001F29F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14970B0F20A1D408003B7E34 /* Photo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Photo.storyboard; sourceTree = "<group>"; };
+		14970B1120A1D4A5003B7E34 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		14970B1420A1D938003B7E34 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		14970B1620A1D999003B7E34 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		14970B2020A1E15F003B7E34 /* SetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewModel.swift; sourceTree = "<group>"; };
 		180A59128C2F8AF8C43F74D3 /* Pods-FlickrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrTests/Pods-FlickrTests.release.xcconfig"; sourceTree = "<group>"; };
 		1845B39BA4952E19E9B5D413 /* Pods-FlickrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrUITests/Pods-FlickrUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		61B3938C843A32071C20CF4B /* Pods_FlickrUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickrUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,9 +124,11 @@
 		148B599420A1CDB1001F29F7 /* Flickr */ = {
 			isa = PBXGroup;
 			children = (
+				14970B0E20A1D3F0003B7E34 /* Extension */,
+				14970B0A20A1D313003B7E34 /* Feature */,
+				14970B0B20A1D31F003B7E34 /* Network */,
+				14970B1320A1D92A003B7E34 /* Config */,
 				148B599520A1CDB1001F29F7 /* AppDelegate.swift */,
-				148B599720A1CDB1001F29F7 /* ViewController.swift */,
-				148B599920A1CDB1001F29F7 /* Main.storyboard */,
 				148B599C20A1CDB1001F29F7 /* Assets.xcassets */,
 				148B599E20A1CDB1001F29F7 /* LaunchScreen.storyboard */,
 				148B59A120A1CDB1001F29F7 /* Info.plist */,
@@ -140,6 +152,105 @@
 				148B59B720A1CDB1001F29F7 /* Info.plist */,
 			);
 			path = FlickrUITests;
+			sourceTree = "<group>";
+		};
+		14970B0A20A1D313003B7E34 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				14970B0D20A1D392003B7E34 /* Photo */,
+				14970B0C20A1D38C003B7E34 /* Setup */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		14970B0B20A1D31F003B7E34 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		14970B0C20A1D38C003B7E34 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				14970B1820A1DA49003B7E34 /* View */,
+				14970B1A20A1DA52003B7E34 /* ViewModel */,
+				14970B1920A1DA4D003B7E34 /* ViewController */,
+				148B599920A1CDB1001F29F7 /* Setup.storyboard */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
+		14970B0D20A1D392003B7E34 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				14970B1B20A1DA67003B7E34 /* View */,
+				14970B1C20A1DA6A003B7E34 /* ViewModel */,
+				14970B1D20A1DA6F003B7E34 /* ViewController */,
+				14970B0F20A1D408003B7E34 /* Photo.storyboard */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		14970B0E20A1D3F0003B7E34 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				14970B1620A1D999003B7E34 /* UIViewControllerExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		14970B1320A1D92A003B7E34 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				14970B1420A1D938003B7E34 /* Storyboard.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		14970B1820A1DA49003B7E34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		14970B1920A1DA4D003B7E34 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				148B599720A1CDB1001F29F7 /* SetupViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		14970B1A20A1DA52003B7E34 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				14970B2020A1E15F003B7E34 /* SetupViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		14970B1B20A1DA67003B7E34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		14970B1C20A1DA6A003B7E34 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		14970B1D20A1DA6F003B7E34 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14970B1120A1D4A5003B7E34 /* PhotoViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		593A0199FFB7F0CB5377EBC7 /* Pods */ = {
@@ -277,8 +388,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				148B59A020A1CDB1001F29F7 /* LaunchScreen.storyboard in Resources */,
+				14970B1020A1D408003B7E34 /* Photo.storyboard in Resources */,
 				148B599D20A1CDB1001F29F7 /* Assets.xcassets in Resources */,
-				148B599B20A1CDB1001F29F7 /* Main.storyboard in Resources */,
+				148B599B20A1CDB1001F29F7 /* Setup.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +460,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/ViewModelBindable/ViewModelBindable.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -357,6 +470,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewModelBindable.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -388,8 +502,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				148B599820A1CDB1001F29F7 /* ViewController.swift in Sources */,
+				14970B1520A1D938003B7E34 /* Storyboard.swift in Sources */,
+				148B599820A1CDB1001F29F7 /* SetupViewController.swift in Sources */,
 				148B599620A1CDB1001F29F7 /* AppDelegate.swift in Sources */,
+				14970B1720A1D999003B7E34 /* UIViewControllerExtension.swift in Sources */,
+				14970B2120A1E15F003B7E34 /* SetupViewModel.swift in Sources */,
+				14970B1220A1D4A5003B7E34 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,12 +543,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		148B599920A1CDB1001F29F7 /* Main.storyboard */ = {
+		148B599920A1CDB1001F29F7 /* Setup.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				148B599A20A1CDB1001F29F7 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Setup.storyboard;
 			sourceTree = "<group>";
 		};
 		148B599E20A1CDB1001F29F7 /* LaunchScreen.storyboard */ = {

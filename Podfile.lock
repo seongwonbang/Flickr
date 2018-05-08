@@ -13,12 +13,15 @@ PODS:
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
+  - ViewModelBindable (1.0.1):
+    - RxSwift (>= 4.0.0)
 
 DEPENDENCIES:
   - Moya/RxSwift (~> 11.0)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
   - SDWebImage (~> 4.0)
+  - ViewModelBindable
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -28,6 +31,7 @@ SPEC REPOS:
     - RxCocoa
     - RxSwift
     - SDWebImage
+    - ViewModelBindable
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
@@ -36,7 +40,8 @@ SPEC CHECKSUMS:
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+  ViewModelBindable: 9ea704fbc9a85f889f5d94b1237920dd4541fdef
 
-PODFILE CHECKSUM: e080b6a85ec9d6c644d7f8f29155ee6c57d14fbb
+PODFILE CHECKSUM: 0d914569a84e546e7426644a104e3ec6805cce42
 
 COCOAPODS: 1.5.0

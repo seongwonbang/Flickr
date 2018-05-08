@@ -4,6 +4,10 @@ platform :ios, '9.0'
 # ignore all warnings from all pods
 inhibit_all_warnings!
 
+def di_pods
+  pod 'ViewModelBindable'
+end
+
 def ui_pods
   pod 'SDWebImage', '~> 4.0'
 end
@@ -19,6 +23,7 @@ target 'Flickr' do
   use_frameworks!
 
   # Pods for Flickr
+  di_pods
   ui_pods
   rx_pods
 

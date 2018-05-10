@@ -11,6 +11,8 @@ import RxSwift
 import RxCocoa
 
 final class SetupViewModel {
+    let dependency: AppDependency
+
     // inputs
     let upButtonTapped = PublishSubject<Void>()
     let downButtonTapped = PublishSubject<Void>()
@@ -19,7 +21,9 @@ final class SetupViewModel {
     // outputs
     let intervalTime: Driver<Int>
 
-    init() {
+    init(dependency: AppDependency) {
+        self.dependency = dependency
+
         let upValue = upButtonTapped.map { 1 }
         let downValue = downButtonTapped.map { -1 }
 

@@ -10,12 +10,16 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    let appDependency = AppDependency()
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // inject ViewModel
+        if let viewController = window?.rootViewController as? SetupViewController {
+            let viewModel = SetupViewModel(dependency: appDependency)
+            viewController.viewModel = viewModel
+        }
+
         return true
     }
 

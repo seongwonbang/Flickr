@@ -10,9 +10,7 @@ import ViewModelBindable
 import RxSwift
 import RxCocoa
 import UIKit
-
 import Moya
-
 
 class SetupViewController: UIViewController {
     @IBOutlet weak var intervalLabel: UILabel!
@@ -26,12 +24,6 @@ class SetupViewController: UIViewController {
 // MARK: - Life Cycle
 extension SetupViewController: ViewModelBindable {
     typealias ViewModel = SetupViewModel
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.viewModel = SetupViewModel()
-    }
 
     func bindViewModel(viewModel: ViewModel) {
         // inputs

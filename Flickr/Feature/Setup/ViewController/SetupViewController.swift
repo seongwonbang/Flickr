@@ -11,6 +11,8 @@ import RxSwift
 import RxCocoa
 import UIKit
 
+import Moya
+
 
 class SetupViewController: UIViewController {
     @IBOutlet weak var intervalLabel: UILabel!
@@ -32,6 +34,7 @@ extension SetupViewController: ViewModelBindable {
     }
 
     func bindViewModel(viewModel: ViewModel) {
+        // inputs
         upButton.rx.tap
             .bind(to: viewModel.upButtonTapped)
             .disposed(by: disposeBag)
@@ -40,6 +43,11 @@ extension SetupViewController: ViewModelBindable {
             .bind(to: viewModel.downButtonTapped)
             .disposed(by: disposeBag)
 
+        startButton.rx.tap
+            .bind(to: viewModel.startButtonTapped)
+            .disposed(by: disposeBag)
+
+        // outputs
         viewModel.intervalTime
             .map { "\($0)" }
             .drive(intervalLabel.rx.text)

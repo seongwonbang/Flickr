@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class PhotoViewController: UIViewController {
 
@@ -32,4 +33,8 @@ class PhotoViewController: UIViewController {
     }
     */
 
+}
+
+extension Reactive where Base: PhotoViewController {
+    
 }

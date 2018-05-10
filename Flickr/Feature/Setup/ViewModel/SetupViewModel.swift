@@ -20,6 +20,7 @@ final class SetupViewModel {
 
     // outputs
     let intervalTime: Driver<Int>
+    let photoViewModel: Signal<PhotoViewModel>
 
     init(dependency: AppDependency) {
         self.dependency = dependency
@@ -32,9 +33,10 @@ final class SetupViewModel {
             .startWith(1)
             .asDriver(onErrorJustReturn: 1)
 
-        startButtonTapped
+        photoViewModel = startButtonTapped
             .withLatestFrom(intervalTime) { $1 }
-            
+            .map { dependency.photoViewModel(interval: $0) }
+            .asSignal(onErrorRecover: { _ in .empty() })
     }
 }
 

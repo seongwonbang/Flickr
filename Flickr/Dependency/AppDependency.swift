@@ -13,4 +13,8 @@ final class AppDependency {
     lazy var flickrService: FlickrServiceProtocol = FlickrService(
         provider: MoyaProvider<FlickrAPIEndPoint>()
     )
+
+    func photoViewModel(interval: Int) -> PhotoViewModel {
+        return PhotoViewModel(interval: interval, service: self.flickrService)
+    }
 }

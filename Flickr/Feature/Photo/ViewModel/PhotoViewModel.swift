@@ -7,6 +7,30 @@
 //
 
 import Foundation
+import ReactorKit
 
-final class PhotoViewModel {
+final class PhotoViewModel: Reactor {
+
+    enum Action {
+        case loadPhotos
+    }
+
+    enum Mutation {
+        case loadPhotos
+    }
+
+    struct State {
+        var photos: [FlickrPhoto]
+    }
+
+    let interval: Int
+    let service: FlickrServiceProtocol
+    let initialState: State
+
+    init (interval: Int, service: FlickrServiceProtocol) {
+        self.interval = interval
+        self.service = service
+        self.initialState = State(photos: [])
+    }
+
 }

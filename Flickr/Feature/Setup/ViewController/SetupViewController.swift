@@ -25,6 +25,12 @@ class SetupViewController: UIViewController {
 extension SetupViewController: ViewModelBindable {
     typealias ViewModel = SetupViewModel
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+
     func bindViewModel(viewModel: ViewModel) {
         // inputs
         upButton.rx.tap
@@ -43,6 +49,13 @@ extension SetupViewController: ViewModelBindable {
         viewModel.intervalTime
             .map { "\($0)" }
             .drive(intervalLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.photoViewModel
+            .emit(onNext: { [weak self] vm in
+                let vc = PhotoViewController.configureWith(viewModel: vm)
+                self?.present(vc, animated: true)
+            })
             .disposed(by: disposeBag)
     }
 }

@@ -46,15 +46,15 @@ extension SetupViewController: ViewModelBindable {
             .disposed(by: disposeBag)
 
         // outputs
-        viewModel.intervalTime
+        viewModel.period
             .map { "\($0)" }
             .drive(intervalLabel.rx.text)
             .disposed(by: disposeBag)
 
         viewModel.photoViewModel
-            .emit(onNext: { [weak self] vm in
-                let vc = PhotoViewController.configureWith(viewModel: vm)
-                self?.present(vc, animated: true)
+            .emit(onNext: { [weak self] viewModel in
+                let viewController = PhotoViewController.configureWith(viewModel: viewModel)
+                self?.present(viewController, animated: true)
             })
             .disposed(by: disposeBag)
     }

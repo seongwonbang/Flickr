@@ -18,6 +18,8 @@ class PhotoViewController: UIViewController {
         return vc
     }
 
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var closeButton: UIButton!
     var disposeBag = DisposeBag()
 }
 
@@ -36,5 +38,26 @@ extension PhotoViewController: ViewModelBindable {
     }
 
     func bindViewModel(viewModel: ViewModel) {
+        // initial load
+        Observable.just(.loadPhotos)
+            .bind(to: viewModel.action)
+            .disposed(by: disposeBag)
+
+        Observable<Int>
+            .interval(RxTimeInterval(viewModel.period), scheduler: MainScheduler.instance)
+            .map { _ in ViewModel.Action.loadNext }
+            .bind(to: viewModel.action)
+            .disposed(by: disposeBag)
+
+        viewModel.state
+            .map { $0.currentIndex }
+            .distinctUntilChanged()
+            .subscribe(onNext: {print($0)})
+            .disposed(by: disposeBag)
+
+        closeButton.rx.tap
+            .map { true }
+            .bind(to: self.rx.dismiss)
+            .disposed(by: disposeBag)
     }
 }

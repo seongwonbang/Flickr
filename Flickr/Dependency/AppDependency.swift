@@ -14,7 +14,7 @@ final class AppDependency {
         provider: MoyaProvider<FlickrAPIEndPoint>()
     )
 
-    func photoViewModel(interval: Int) -> PhotoViewModel {
-        return PhotoViewModel(interval: interval, service: self.flickrService)
+    func photoViewModel(period: Int) -> PhotoViewModel {
+        return PhotoViewModel(period: period, service: self.flickrService)
     }
 }

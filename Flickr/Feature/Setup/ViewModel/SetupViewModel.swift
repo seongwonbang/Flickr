@@ -19,7 +19,7 @@ final class SetupViewModel {
     let startButtonTapped = PublishSubject<Void>()
 
     // outputs
-    let intervalTime: Driver<Int>
+    let period: Driver<Int>
     let photoViewModel: Signal<PhotoViewModel>
 
     init(dependency: AppDependency) {
@@ -28,14 +28,14 @@ final class SetupViewModel {
         let upValue = upButtonTapped.map { 1 }
         let downValue = downButtonTapped.map { -1 }
 
-        intervalTime = Observable.merge([upValue, downValue])
+        period = Observable.merge([upValue, downValue])
             .scanInRange(1, low: 1, high: 10) { $0 + $1 }
             .startWith(1)
             .asDriver(onErrorJustReturn: 1)
 
         photoViewModel = startButtonTapped
-            .withLatestFrom(intervalTime) { $1 }
-            .map { dependency.photoViewModel(interval: $0) }
+            .withLatestFrom(period) { $1 }
+            .map { dependency.photoViewModel(period: $0) }
             .asSignal(onErrorRecover: { _ in .empty() })
     }
 }

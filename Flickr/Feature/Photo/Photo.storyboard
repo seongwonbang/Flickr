@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,9 +18,32 @@
                     <view key="view" contentMode="scaleToFill" id="XeE-rC-k5K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cmc-1a-2dN">
+                                <rect key="frame" x="335" y="30" width="30" height="30"/>
+                                <state key="normal" title="닫기"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cow-wb-Smh">
+                                <rect key="frame" x="50" y="196" width="275" height="275"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cow-wb-Smh" secondAttribute="height" multiplier="1:1" id="6tj-9k-jCb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cow-wb-Smh" firstAttribute="leading" secondItem="iW2-gE-V9C" secondAttribute="leading" constant="50" id="0It-jc-tF7"/>
+                            <constraint firstItem="iW2-gE-V9C" firstAttribute="trailing" secondItem="cow-wb-Smh" secondAttribute="trailing" constant="50" id="4fY-z0-tNB"/>
+                            <constraint firstItem="cow-wb-Smh" firstAttribute="centerY" secondItem="XeE-rC-k5K" secondAttribute="centerY" id="Lfl-Qs-qG1"/>
+                            <constraint firstItem="iW2-gE-V9C" firstAttribute="trailing" secondItem="Cmc-1a-2dN" secondAttribute="trailing" constant="10" id="Sop-rW-ZKA"/>
+                            <constraint firstItem="Cmc-1a-2dN" firstAttribute="top" secondItem="iW2-gE-V9C" secondAttribute="top" constant="10" id="su8-S6-WtT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iW2-gE-V9C"/>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="Cmc-1a-2dN" id="YU9-xe-nfN"/>
+                        <outlet property="imageView" destination="cow-wb-Smh" id="brh-SK-ozv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K5L-PO-ZfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

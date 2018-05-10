@@ -8,29 +8,53 @@
 
 import Foundation
 import ReactorKit
+import RxSwift
 
 final class PhotoViewModel: Reactor {
-
     enum Action {
         case loadPhotos
+        case loadNext
     }
 
     enum Mutation {
-        case loadPhotos
+        case loadPhotos([FlickrPhoto])
+        case loadNext
     }
 
     struct State {
         var photos: [FlickrPhoto]
+        var currentIndex: Int
     }
 
-    let interval: Int
+    let period: Int
     let service: FlickrServiceProtocol
     let initialState: State
 
-    init (interval: Int, service: FlickrServiceProtocol) {
-        self.interval = interval
+    init (period: Int, service: FlickrServiceProtocol) {
+        self.period = period
         self.service = service
-        self.initialState = State(photos: [])
+        self.initialState = State(photos: [], currentIndex: 0)
     }
 
+    func mutate(action: Action) -> Observable<Mutation> {
+        switch action {
+        case .loadPhotos:
+            return service.getPhotos()
+                .map(Mutation.loadPhotos)
+                .asObservable()
+        case .loadNext:
+            return .just(.loadNext)
+        }
+    }
+
+    func reduce(state: State, mutation: Mutation) -> State {
+        var state = state
+        switch mutation {
+        case .loadPhotos(let photos):
+            state.photos.append(contentsOf: photos)
+        case .loadNext:
+            state.currentIndex += 1
+        }
+        return state
+    }
 }

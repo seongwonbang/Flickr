@@ -143,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				14970B0E20A1D3F0003B7E34 /* Extension */,
-				14970B0A20A1D313003B7E34 /* Feature */,
+				14970B0A20A1D313003B7E34 /* Scene */,
 				14E7D4C720A473240069CAA9 /* Dependency */,
 				14970B0B20A1D31F003B7E34 /* Network */,
 				14970B1320A1D92A003B7E34 /* Config */,
@@ -173,13 +173,13 @@
 			path = FlickrUITests;
 			sourceTree = "<group>";
 		};
-		14970B0A20A1D313003B7E34 /* Feature */ = {
+		14970B0A20A1D313003B7E34 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
 				14970B0D20A1D392003B7E34 /* Photo */,
 				14970B0C20A1D38C003B7E34 /* Setup */,
 			);
-			path = Feature;
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		14970B0B20A1D31F003B7E34 /* Network */ = {

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 extension UIViewController {
     public static var defaultNib: String {

@@ -20,9 +20,9 @@ class PhotoViewController: UIViewController {
     var disposeBag = DisposeBag()
 
     static func configureWith(viewModel: ViewModel) -> PhotoViewController {
-        let vc = Storyboard.Photo.instantiate(PhotoViewController.self)
-        vc.viewModel = viewModel
-        return vc
+        let viewController = Storyboard.Photo.instantiate(PhotoViewController.self)
+        viewController.viewModel = viewModel
+        return viewController
     }
 }
 

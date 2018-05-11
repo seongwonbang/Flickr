@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 final class SetupViewModel {
-    let dependency: AppDependency
+    let dependency: SetupViewDependency
 
     // inputs
     let upButtonTapped = PublishSubject<Void>()
@@ -22,7 +22,7 @@ final class SetupViewModel {
     let period: Driver<Int>
     let photoViewModel: Signal<PhotoViewModel>
 
-    init(dependency: AppDependency) {
+    init(dependency: SetupViewDependency) {
         self.dependency = dependency
 
         let upValue = upButtonTapped.map { 1 }

@@ -6,7 +6,7 @@
 //  Copyright © 2018년 makesource. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UIViewController {
     public static var defaultNib: String {

@@ -19,5 +19,7 @@ Used MVVM based architecture pattern
 
 ## Screenshots
 
+<img src="https://raw.github.com/seongwonbang/flickr/master/Screenshots/setup.png" width = "50%"/><img src="https://raw.github.com/seongwonbang/flickr/master/Screenshots/photo.png" width = "50%"/>
+
 ## License
 Flickr is available under the MIT license. See the LICENSE file for more info.

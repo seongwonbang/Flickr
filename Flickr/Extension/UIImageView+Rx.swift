@@ -13,12 +13,11 @@ import RxCocoa
 
 // MARK: - Reactive Extension
 extension Reactive where Base: UIImageView {
-    public var imageUrl: Binder<String?> {
-        return Binder(base) { image, url in
-            if let url = URL(string: url ?? "") {
-                image.sd_setImageWithFade(with: url, placeholderImage: UIImage())
-            }
+    var downloadImage: Binder<UIImage> {
+        return Binder(base) { imageView, image in
+            UIView.transition(with: imageView, duration: 0.3, options: .transitionCrossDissolve, animations: { () -> Void in
+                self.base.image = image
+            }, completion: nil)
         }
-
     }
 }

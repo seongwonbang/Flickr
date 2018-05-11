@@ -21,6 +21,7 @@ end
 def rx_pods
   pod 'RxSwift',    '~> 4.0'
   pod 'RxCocoa',    '~> 4.0'
+  pod 'RxOptional'
   pod 'ReactorKit'
 end
 

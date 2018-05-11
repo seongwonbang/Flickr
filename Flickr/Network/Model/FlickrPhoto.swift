@@ -28,3 +28,7 @@ struct Media: Mappable {
         try m = map.from("m")
     }
 }
+
+enum FlickrPhotoError: Error {
+    case failedFetchingImage
+}

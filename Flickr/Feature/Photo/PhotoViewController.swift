@@ -8,21 +8,25 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
+import RxOptional
 import ReactorKit
+import SDWebImage
 import ViewModelBindable
 
 class PhotoViewController: UIViewController {
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var closeButton: UIButton!
+    var disposeBag = DisposeBag()
+
     static func configureWith(viewModel: ViewModel) -> PhotoViewController {
         let vc = Storyboard.Photo.instantiate(PhotoViewController.self)
         vc.viewModel = viewModel
         return vc
     }
-
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var closeButton: UIButton!
-    var disposeBag = DisposeBag()
 }
 
+// MARK: - Life Cycle
 extension PhotoViewController: ViewModelBindable {
     typealias ViewModel = PhotoViewModel
 
@@ -32,51 +36,52 @@ extension PhotoViewController: ViewModelBindable {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     func bindViewModel(viewModel: ViewModel) {
-        // Action binding
-        viewModel.state
-            .loadTrigger()
-            .map { .loadPhotos }
-            .bind(to: viewModel.action)
-            .disposed(by: disposeBag)
-
-        viewModel.state
-            .currentImage()
-            .delay(RxTimeInterval(viewModel.period), scheduler: MainScheduler.instance)
-            .map { _ in .loadNext }
-            .bind(to: viewModel.action)
-            .disposed(by: disposeBag)
+        let currentImage = viewModel.state
+            .currentImageUrl()
+            .flatMap { SDWebImageManager.shared().downloadImageWithURL(url: $0) }
+            .share(replay: 1, scope: .whileConnected)
 
         // State binding
-        viewModel.state
-            .currentImage()
-            .bind(to: imageView.rx.imageUrl)
+        currentImage
+            .bind(to: imageView.rx.downloadImage)
             .disposed(by: disposeBag)
 
         closeButton.rx.tap
             .map { true }
             .bind(to: self.rx.dismiss)
             .disposed(by: disposeBag)
+
+        // Action binding
+        viewModel.state
+            .needPhotos()
+            .map { .loadPhotos }
+            .bind(to: viewModel.action)
+            .disposed(by: disposeBag)
+
+        currentImage
+            .delay(RxTimeInterval(viewModel.period), scheduler: MainScheduler.instance)
+            // trigger .loadNext after designated period
+            .map { _ in .loadNext }
+            .bind(to: viewModel.action)
+            .disposed(by: disposeBag)
     }
 }
 
+// MARK: - ObservableType Extension
 extension ObservableType where E == PhotoViewModel.State {
-    func loadTrigger() -> Observable<Void> {
+    func needPhotos() -> Observable<Void> {
         return self
-            .filter { $0.currentIndex >= $0.photos.count - 5 }
-            .map { _ in }
+            .filter { $0.photos.count < 5 }
+            .map { _ in Void() }
             .observeOn(MainScheduler.asyncInstance)
     }
 
-    func currentImage() -> Observable<String> {
+    func currentImageUrl() -> Observable<URL> {
         return self
-            .filter { !$0.isLoading }
-            .map { $0.photos[$0.currentIndex % 2].image }
+            .map { URL(string: $0.photos.first?.image ?? "") }
+            .filterNil()
             .distinctUntilChanged()
     }
 }
+

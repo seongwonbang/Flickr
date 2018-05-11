@@ -43,10 +43,10 @@ final class SetupViewModel {
 extension ObservableType where E == Int {
     public func scanInRange<A: Comparable>(_ seed: A, low: A, high: A, accumulator: @escaping (A, Self.E) throws -> A) -> Observable<A> {
         let acc = { (x: A, y: Self.E) throws -> A in
-            let z = try accumulator(x, y)
-            if (z < low) { return low }
-            else if (z > high) { return high }
-            else { return z }
+            let v = try accumulator(x, y)
+            if (v < low) { return low }
+            else if (v > high) { return high }
+            else { return v }
         }
         return self.scan(seed, accumulator: acc)
     }

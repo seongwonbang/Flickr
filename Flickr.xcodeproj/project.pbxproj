@@ -149,7 +149,6 @@
 				14E7D4C720A473240069CAA9 /* Dependency */,
 				14970B0B20A1D31F003B7E34 /* Network */,
 				14970B1320A1D92A003B7E34 /* Config */,
-				148B599520A1CDB1001F29F7 /* AppDelegate.swift */,
 				148B599E20A1CDB1001F29F7 /* LaunchScreen.storyboard */,
 				148B599C20A1CDB1001F29F7 /* Assets.xcassets */,
 				148B59A120A1CDB1001F29F7 /* Info.plist */,
@@ -227,6 +226,7 @@
 		14970B1320A1D92A003B7E34 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				148B599520A1CDB1001F29F7 /* AppDelegate.swift */,
 				14970B1420A1D938003B7E34 /* Storyboard.swift */,
 			);
 			path = Config;

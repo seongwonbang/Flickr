@@ -12,12 +12,12 @@ import Mapper
 struct FlickrPhoto: Mappable {
     let title: String
     let link: String
-    let media: Media?
+    let image: String
 
     init(map: Mapper) throws {
         try title = map.from("title")
         try link = map.from("link")
-        try media = map.from("media")
+        try image = (map.from("media") as Media).m
     }
 }
 

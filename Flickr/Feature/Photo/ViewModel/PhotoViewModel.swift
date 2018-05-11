@@ -24,6 +24,7 @@ final class PhotoViewModel: Reactor {
     struct State {
         var photos: [FlickrPhoto]
         var currentIndex: Int
+        var isLoading: Bool
     }
 
     let period: Int
@@ -33,7 +34,7 @@ final class PhotoViewModel: Reactor {
     init (period: Int, service: FlickrServiceProtocol) {
         self.period = period
         self.service = service
-        self.initialState = State(photos: [], currentIndex: 0)
+        self.initialState = State(photos: [], currentIndex: 0, isLoading: true)
     }
 
     func mutate(action: Action) -> Observable<Mutation> {
@@ -52,6 +53,7 @@ final class PhotoViewModel: Reactor {
         switch mutation {
         case .loadPhotos(let photos):
             state.photos.append(contentsOf: photos)
+            state.isLoading = false
         case .loadNext:
             state.currentIndex += 1
         }

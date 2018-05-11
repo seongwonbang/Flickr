@@ -38,26 +38,45 @@ extension PhotoViewController: ViewModelBindable {
     }
 
     func bindViewModel(viewModel: ViewModel) {
-        // initial load
-        Observable.just(.loadPhotos)
-            .bind(to: viewModel.action)
-            .disposed(by: disposeBag)
-
-        Observable<Int>
-            .interval(RxTimeInterval(viewModel.period), scheduler: MainScheduler.instance)
-            .map { _ in ViewModel.Action.loadNext }
+        // Action binding
+        viewModel.state
+            .loadTrigger()
+            .map { .loadPhotos }
             .bind(to: viewModel.action)
             .disposed(by: disposeBag)
 
         viewModel.state
-            .map { $0.currentIndex }
-            .distinctUntilChanged()
-            .subscribe(onNext: {print($0)})
+            .currentImage()
+            .delay(RxTimeInterval(viewModel.period), scheduler: MainScheduler.instance)
+            .map { _ in .loadNext }
+            .bind(to: viewModel.action)
+            .disposed(by: disposeBag)
+
+        // State binding
+        viewModel.state
+            .currentImage()
+            .bind(to: imageView.rx.imageUrl)
             .disposed(by: disposeBag)
 
         closeButton.rx.tap
             .map { true }
             .bind(to: self.rx.dismiss)
             .disposed(by: disposeBag)
+    }
+}
+
+extension ObservableType where E == PhotoViewModel.State {
+    func loadTrigger() -> Observable<Void> {
+        return self
+            .filter { $0.currentIndex >= $0.photos.count - 5 }
+            .map { _ in }
+            .observeOn(MainScheduler.asyncInstance)
+    }
+
+    func currentImage() -> Observable<String> {
+        return self
+            .filter { !$0.isLoading }
+            .map { $0.photos[$0.currentIndex % 2].image }
+            .distinctUntilChanged()
     }
 }

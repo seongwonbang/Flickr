@@ -37,6 +37,7 @@ extension PhotoViewController: ViewModelBindable {
     }
 
     func bindViewModel(viewModel: ViewModel) {
+        // Current UIImage observable
         let currentImage = viewModel.state
             .currentImageUrl()
             .flatMap { SDWebImageManager.shared().downloadImageWithURL(url: $0) }
@@ -61,7 +62,7 @@ extension PhotoViewController: ViewModelBindable {
 
         currentImage
             .delay(RxTimeInterval(viewModel.period), scheduler: MainScheduler.instance)
-            // trigger .loadNext after designated period
+            // trigger .loadNext after delay designated period
             .map { _ in .loadNext }
             .bind(to: viewModel.action)
             .disposed(by: disposeBag)
@@ -74,6 +75,7 @@ extension ObservableType where E == PhotoViewModel.State {
         return self
             .filter { $0.photos.count < 5 }
             .map { _ in Void() }
+            // to avoid cyclic state dependency warning
             .observeOn(MainScheduler.asyncInstance)
     }
 

@@ -32,7 +32,7 @@ extension SetupViewController: ViewModelBindable {
     }
 
     func bindViewModel(viewModel: ViewModel) {
-        // inputs
+        // Inputs
         upButton.rx.tap
             .bind(to: viewModel.upButtonTapped)
             .disposed(by: disposeBag)
@@ -45,7 +45,7 @@ extension SetupViewController: ViewModelBindable {
             .bind(to: viewModel.startButtonTapped)
             .disposed(by: disposeBag)
 
-        // outputs
+        // Outputs
         viewModel.period
             .map { "\($0)" }
             .drive(intervalLabel.rx.text)

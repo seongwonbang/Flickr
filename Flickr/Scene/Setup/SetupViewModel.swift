@@ -13,12 +13,12 @@ import RxCocoa
 final class SetupViewModel {
     let dependency: SetupViewDependency
 
-    // inputs
+    // Inputs
     let upButtonTapped = PublishSubject<Void>()
     let downButtonTapped = PublishSubject<Void>()
     let startButtonTapped = PublishSubject<Void>()
 
-    // outputs
+    // Outputs
     let period: Driver<Int>
     let photoViewModel: Signal<PhotoViewModel>
 

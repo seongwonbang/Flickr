@@ -119,6 +119,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14510CAC20A6FEE6006167BE /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				14970B0A20A1D313003B7E34 /* Scene */,
+				14970B0B20A1D31F003B7E34 /* Network */,
+				14970B0E20A1D3F0003B7E34 /* Extension */,
+				14E7D4C720A473240069CAA9 /* Dependency */,
+				148B599520A1CDB1001F29F7 /* AppDelegate.swift */,
+				14970B1420A1D938003B7E34 /* Storyboard.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		14510CAD20A6FEF1006167BE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				148B599E20A1CDB1001F29F7 /* LaunchScreen.storyboard */,
+				148B599C20A1CDB1001F29F7 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		14510CAE20A6FEF9006167BE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				148B59A120A1CDB1001F29F7 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		148B598920A1CDB1001F29F7 = {
 			isa = PBXGroup;
 			children = (
@@ -144,14 +174,9 @@
 		148B599420A1CDB1001F29F7 /* Flickr */ = {
 			isa = PBXGroup;
 			children = (
-				14970B0E20A1D3F0003B7E34 /* Extension */,
-				14970B0A20A1D313003B7E34 /* Scene */,
-				14E7D4C720A473240069CAA9 /* Dependency */,
-				14970B0B20A1D31F003B7E34 /* Network */,
-				14970B1320A1D92A003B7E34 /* Config */,
-				148B599E20A1CDB1001F29F7 /* LaunchScreen.storyboard */,
-				148B599C20A1CDB1001F29F7 /* Assets.xcassets */,
-				148B59A120A1CDB1001F29F7 /* Info.plist */,
+				14510CAC20A6FEE6006167BE /* Sources */,
+				14510CAD20A6FEF1006167BE /* Resources */,
+				14510CAE20A6FEF9006167BE /* Supporting Files */,
 			);
 			path = Flickr;
 			sourceTree = "<group>";
@@ -221,15 +246,6 @@
 				144B2F5D20A5F6390053474B /* SDWebImageManager.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		14970B1320A1D92A003B7E34 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				148B599520A1CDB1001F29F7 /* AppDelegate.swift */,
-				14970B1420A1D938003B7E34 /* Storyboard.swift */,
-			);
-			path = Config;
 			sourceTree = "<group>";
 		};
 		14970B2220A1FB3E003B7E34 /* API */ = {
@@ -692,7 +708,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 29N6FGJM49;
-				INFOPLIST_FILE = Flickr/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Flickr/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = makesource.Flickr;
@@ -709,7 +725,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 29N6FGJM49;
-				INFOPLIST_FILE = Flickr/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Flickr/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = makesource.Flickr;

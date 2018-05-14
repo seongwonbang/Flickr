@@ -37,34 +37,33 @@ extension PhotoViewController: ViewModelBindable {
     }
 
     func bindViewModel(viewModel: ViewModel) {
-        // Current UIImage observable
+        // State binding
         let currentImage = viewModel.state
             .currentImageUrl()
             .flatMap { SDWebImageManager.shared().downloadImageWithURL(url: $0) }
             .share(replay: 1, scope: .whileConnected)
 
-        // State binding
         currentImage
             .bind(to: imageView.rx.downloadImage)
             .disposed(by: disposeBag)
 
-        closeButton.rx.tap
-            .map { true }
-            .bind(to: self.rx.dismiss)
+        // Action binding
+        currentImage
+            .delay(RxTimeInterval(viewModel.period), scheduler: MainScheduler.instance)
+            // trigger .loadNext after designated period delay
+            .map { _ in .loadNext }
+            .bind(to: viewModel.action)
             .disposed(by: disposeBag)
 
-        // Action binding
         viewModel.state
             .needPhotos()
             .map { .loadPhotos }
             .bind(to: viewModel.action)
             .disposed(by: disposeBag)
 
-        currentImage
-            .delay(RxTimeInterval(viewModel.period), scheduler: MainScheduler.instance)
-            // trigger .loadNext after delay designated period
-            .map { _ in .loadNext }
-            .bind(to: viewModel.action)
+        closeButton.rx.tap
+            .map { true }
+            .bind(to: self.rx.dismiss)
             .disposed(by: disposeBag)
     }
 }
@@ -73,7 +72,7 @@ extension PhotoViewController: ViewModelBindable {
 extension ObservableType where E == PhotoViewModel.State {
     func needPhotos() -> Observable<Void> {
         return self
-            .filter { $0.photos.count < 5 }
+            .filter { $0.photos.count < 5 && !$0.isLoading }
             .map { _ in Void() }
             // to avoid cyclic state dependency warning
             .observeOn(MainScheduler.asyncInstance)

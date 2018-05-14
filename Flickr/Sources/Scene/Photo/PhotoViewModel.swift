@@ -19,10 +19,12 @@ final class PhotoViewModel: Reactor {
     enum Mutation {
         case loadPhotos([FlickrPhoto])
         case loadNext
+        case setLoading(Bool)
     }
 
     struct State {
         var photos: [FlickrPhoto]
+        var isLoading: Bool
     }
 
     let period: Int
@@ -32,15 +34,20 @@ final class PhotoViewModel: Reactor {
     init (period: Int, service: FlickrServiceProtocol) {
         self.period = period
         self.service = service
-        self.initialState = State(photos: [])
+        self.initialState = State(photos: [], isLoading: false)
     }
 
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .loadPhotos:
-            return service.getPhotos()
+            let photoObservable = service.getPhotos()
                 .map(Mutation.loadPhotos)
                 .asObservable()
+            return .concat([
+                .just(.setLoading(true)),
+                photoObservable,
+                .just(.setLoading(false)),
+            ])
         case .loadNext:
             return .just(.loadNext)
         }
@@ -53,6 +60,8 @@ final class PhotoViewModel: Reactor {
             state.photos.append(contentsOf: photos)
         case .loadNext:
             state.photos = Array(state.photos.dropFirst())
+        case .setLoading(let isLoading):
+            state.isLoading = isLoading
         }
         return state
     }

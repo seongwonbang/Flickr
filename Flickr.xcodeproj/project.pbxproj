@@ -10,7 +10,6 @@
 		0364C88574F37631E24F1B2B /* Pods_FlickrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8574A8DE9844EA1388651FF9 /* Pods_FlickrTests.framework */; };
 		144B2F5A20A5E6B80053474B /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 144B2F5920A5E6B70053474B /* Setup.storyboard */; };
 		144B2F5E20A5F6390053474B /* SDWebImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B2F5D20A5F6390053474B /* SDWebImageManager.swift */; };
-		144B2F6020A602F20053474B /* SetupViewDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B2F5F20A602F20053474B /* SetupViewDependency.swift */; };
 		148B599620A1CDB1001F29F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B599520A1CDB1001F29F7 /* AppDelegate.swift */; };
 		148B599820A1CDB1001F29F7 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B599720A1CDB1001F29F7 /* SetupViewController.swift */; };
 		148B599D20A1CDB1001F29F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 148B599C20A1CDB1001F29F7 /* Assets.xcassets */; };
@@ -54,7 +53,6 @@
 /* Begin PBXFileReference section */
 		144B2F5920A5E6B70053474B /* Setup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
 		144B2F5D20A5F6390053474B /* SDWebImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDWebImageManager.swift; sourceTree = "<group>"; };
-		144B2F5F20A602F20053474B /* SetupViewDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewDependency.swift; sourceTree = "<group>"; };
 		148B599220A1CDB1001F29F7 /* Flickr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flickr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		148B599520A1CDB1001F29F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		148B599720A1CDB1001F29F7 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
@@ -125,8 +123,8 @@
 				14970B0A20A1D313003B7E34 /* Scene */,
 				14970B0B20A1D31F003B7E34 /* Network */,
 				14970B0E20A1D3F0003B7E34 /* Extension */,
-				14E7D4C720A473240069CAA9 /* Dependency */,
 				148B599520A1CDB1001F29F7 /* AppDelegate.swift */,
+				14E7D4C820A473330069CAA9 /* AppDependency.swift */,
 				14970B1420A1D938003B7E34 /* Storyboard.swift */,
 			);
 			path = Sources;
@@ -264,15 +262,6 @@
 				14970B2A20A1FEFC003B7E34 /* FlickrPhoto.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		14E7D4C720A473240069CAA9 /* Dependency */ = {
-			isa = PBXGroup;
-			children = (
-				14E7D4C820A473330069CAA9 /* AppDependency.swift */,
-				144B2F5F20A602F20053474B /* SetupViewDependency.swift */,
-			);
-			path = Dependency;
 			sourceTree = "<group>";
 		};
 		593A0199FFB7F0CB5377EBC7 /* Pods */ = {
@@ -547,7 +536,6 @@
 				144B2F5E20A5F6390053474B /* SDWebImageManager.swift in Sources */,
 				14970B2120A1E15F003B7E34 /* SetupViewModel.swift in Sources */,
 				14970B1220A1D4A5003B7E34 /* PhotoViewController.swift in Sources */,
-				144B2F6020A602F20053474B /* SetupViewDependency.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,14 +9,15 @@
 import Foundation
 import Moya
 
-final class AppDependency {
+protocol SetupViewDependency {
+    func photoViewModel(period: Int) -> PhotoViewModel
+}
+
+final class AppDependency: SetupViewDependency {
     lazy var flickrService: FlickrServiceProtocol = FlickrService(
         provider: MoyaProvider<FlickrAPIEndPoint>()
     )
-}
 
-// MARK: - SetupViewDependency
-extension AppDependency: SetupViewDependency {
     func photoViewModel(period: Int) -> PhotoViewModel {
         return PhotoViewModel(period: period, service: self.flickrService)
     }
